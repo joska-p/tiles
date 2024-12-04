@@ -6,6 +6,7 @@
 
 body {
   --bg-color: black;
+  --tile-size: 3rem;
 
   background-color: var(--bg-color);
   margin: 0;
@@ -19,7 +20,6 @@ body {
 }
 
 .tile {
-  --tile-size: 4rem;
   --subtile-size: calc(var(--tile-size) * 0.25);
 
   --bg-color: blue;

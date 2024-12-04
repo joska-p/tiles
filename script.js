@@ -1,4 +1,4 @@
-const tileQuantity = 800
+const tileQuantity = 2000
 
 const tiles = document.querySelector(".tiles")
 
@@ -14,7 +14,10 @@ const randomPalette = async () => {
 }
 
 const palette = await randomPalette()
+/* need a ranom size between 3rem and 6rem */
+const randomSize = () => Math.floor(Math.random() * 3) + 3
 
+document.body.style.setProperty("--tile-size", `${randomSize()}rem`)
 document.body.style.setProperty("--bg-color", palette[0])
 
 for (let i = 0; i < tileQuantity; i++) {
