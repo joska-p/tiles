@@ -16,7 +16,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 }
 
 .tile {
@@ -33,15 +32,20 @@ body {
 
   position: relative;
   background-color: var(--bg-color);
-  flex-basis: var(--tile-size);
-  aspect-ratio: 1/1;
+  height: var(--tile-size);
+  width: var(--tile-size);
   transform: rotate(var(--orientation));
+  overflow: hidden;
+}
+
+.tile::before,
+.tile::after {
+  position: absolute;
+  content: "";
 }
 
 .middle-circle::before,
 .middle-circle::after {
-  position: absolute;
-  content: "";
   inset: var(--subtile-size);
 }
 
@@ -59,8 +63,6 @@ body {
 
 .outside-circle::before,
 .outside-circle::after {
-  position: absolute;
-  content: "";
   inset: 0;
 }
 
@@ -76,4 +78,46 @@ body {
   border-left: calc(var(--tile-size) * 0.5) solid var(--fourth-color);
   border-bottom-left-radius: calc(var(--tile-size) * 0.5);
   border-top-left-radius: calc(var(--tile-size) * 0.5);
+}
+
+.corner-circle::before {
+  top: 50%;
+  right: 50%;
+  bottom: 0;
+  left: 0;
+  border-right: calc(var(--tile-size) * 0.5) solid var(--first-color);
+  border-top-right-radius: calc(var(--tile-size) * 0.5);
+}
+
+.corner-circle::after {
+  top: 0;
+  right: 0;
+  bottom: 50%;
+  left: 50%;
+  border-left: calc(var(--tile-size) * 0.5) solid var(--second-color);
+  border-bottom-left-radius: calc(var(--tile-size) * 0.5);
+}
+
+.triangle::before {
+  inset: 0;
+  border-top: calc(var(--tile-size) * 0.5) solid var(--first-color);
+  border-bottom: calc(var(--tile-size) * 0.5) solid var(--second-color);
+  border-left: calc(var(--tile-size) * 0.5) solid var(--third-color);
+  border-right: calc(var(--tile-size) * 0.5) solid var(--fourth-color);
+}
+
+.square::before {
+  top: 0;
+  right: 50%;
+  bottom: 50%;
+  left: 0;
+  background-color: var(--first-color);
+}
+
+.square::after {
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--second-color);
 }

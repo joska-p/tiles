@@ -2,7 +2,7 @@ const tileQuantity = 800
 
 const tiles = document.querySelector(".tiles")
 
-const symboles = ["middle-circle", "outside-circle"]
+const symboles = ["middle-circle", "outside-circle", "corner-circle", "triangle", "square"]
 const randomSymbol = () => symboles[Math.floor(Math.random() * symboles.length)]
 /* orientation must be a random multiple of 90 beetween 0 and 360 */
 const randomOrientation = () => Math.floor(Math.random() * 4) * 90
