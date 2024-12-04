@@ -15,10 +15,12 @@ body {
 .tiles {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .tile {
-  --tile-size: 5rem;
+  --tile-size: 4rem;
   --subtile-size: calc(var(--tile-size) * 0.25);
 
   --bg-color: blue;
@@ -31,7 +33,7 @@ body {
 
   position: relative;
   background-color: var(--bg-color);
-  width: var(--tile-size);
+  flex-basis: var(--tile-size);
   aspect-ratio: 1/1;
   transform: rotate(var(--orientation));
 }

@@ -1,4 +1,4 @@
-const tileQuantity = 100
+const tileQuantity = 800
 
 const tiles = document.querySelector(".tiles")
 
