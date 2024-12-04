@@ -5,23 +5,11 @@
 }
 
 body {
+  --bg-color: black;
+
+  background-color: var(--bg-color);
   margin: 0;
-}
-
-:root {
-  /* sizes */
-  --tile-size: 10rem;
-  --middle-circle-ratio: 0.25;
-
-  /* colors */
-  --tile-color: blue;
-  --middle-circle-left-color: green;
-  --middle-circle-right-color: yellow;
-  --outside-circle-left-color: pink;
-  --outside-circle-right-color: magenta;
-
-  /* orientation */
-  --orientation: 0;
+  min-height: 100dvh;
 }
 
 .tiles {
@@ -30,8 +18,19 @@ body {
 }
 
 .tile {
+  --tile-size: 5rem;
+  --subtile-size: calc(var(--tile-size) * 0.25);
+
+  --bg-color: blue;
+  --first-color: green;
+  --second-color: yellow;
+  --third-color: pink;
+  --fourth-color: purple;
+
+  --orientation: 0;
+
   position: relative;
-  background-color: var(--tile-color);
+  background-color: var(--bg-color);
   width: var(--tile-size);
   aspect-ratio: 1/1;
   transform: rotate(var(--orientation));
@@ -41,17 +40,17 @@ body {
 .middle-circle::after {
   position: absolute;
   content: "";
-  inset: calc(100% * var(--middle-circle-ratio));
+  inset: var(--subtile-size);
 }
 
 .middle-circle::before {
-  border-left: calc(var(--tile-size) * var(--middle-circle-ratio)) solid var(--middle-circle-left-color);
+  border-left: var(--subtile-size) solid var(--first-color);
   border-bottom-left-radius: 100%;
   border-top-left-radius: 100%;
 }
 
 .middle-circle::after {
-  border-right: calc(var(--tile-size) * var(--middle-circle-ratio)) solid var(--middle-circle-right-color);
+  border-right: var(--subtile-size) solid var(--second-color);
   border-bottom-right-radius: 100%;
   border-top-right-radius: 100%;
 }
@@ -65,14 +64,14 @@ body {
 
 .outside-circle::before {
   right: 50%;
-  border-right: calc(var(--tile-size) * 0.5) solid var(--outside-circle-left-color);
+  border-right: calc(var(--tile-size) * 0.5) solid var(--third-color);
   border-bottom-right-radius: calc(var(--tile-size) * 0.5);
   border-top-right-radius: calc(var(--tile-size) * 0.5);
 }
 
 .outside-circle::after {
   left: 50%;
-  border-left: calc(var(--tile-size) * 0.5) solid var(--outside-circle-right-color);
+  border-left: calc(var(--tile-size) * 0.5) solid var(--fourth-color);
   border-bottom-left-radius: calc(var(--tile-size) * 0.5);
   border-top-left-radius: calc(var(--tile-size) * 0.5);
 }
